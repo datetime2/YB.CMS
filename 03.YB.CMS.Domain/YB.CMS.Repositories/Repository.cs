@@ -27,11 +27,12 @@ namespace YB.CMS.Repositories
                 return context.GetList<T>(express).FirstOrDefault();
             });
         }
-        public IEnumerable<T> FindAll(Expression<Func<T, bool>> express)
+
+        public IEnumerable<T> FindAll(PredicateGroup predi)
         {
             return QueryDb<IEnumerable<T>>((context) =>
             {
-                return context.GetList<T>(express);
+                return context.GetList<T>(predi);
             });
         }
         public IEnumerable<T> GetPage(Expression<Func<T, bool>> predi, IList<ISort> sort, int page, int pagesize)

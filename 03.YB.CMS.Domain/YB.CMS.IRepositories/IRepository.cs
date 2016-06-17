@@ -13,11 +13,6 @@ namespace YB.CMS.IRepositories
     public interface IRepository<T> where T : class
     {
         /// <summary>
-        /// 获取所有
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<T> FindAll(Expression<Func<T, bool>> express);
-        /// <summary>
         /// 获取单个
         /// </summary>
         /// <param name="express">条件表达式</param>
@@ -43,5 +38,7 @@ namespace YB.CMS.IRepositories
         bool Remove(Expression<Func<T, bool>> predi);
 
         IEnumerable<T> GetPage(Expression<Func<T, bool>> predi, IList<ISort> sort, int page, int pagesize);
+
+        IEnumerable<T> FindAll(PredicateGroup predi);
     }
 }
