@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manager\Controllers\OrderController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -314,6 +315,18 @@
     <Content Include="Areas\Manager\Content\js\bootstrap.min.js" />
     <Content Include="Areas\Manager\Content\js\contabs.min.js" />
     <Content Include="Areas\Manager\Content\js\content.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\bootstrap-table-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\echarts-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\flot-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\form-advanced-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\form-validate-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\layer-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\morris-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\peity-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\rickshaw-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\sparkline-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\treeview-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\demo\webuploader-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\hplus.min.js" />
     <Content Include="Areas\Manager\Content\js\jquery-ui-1.10.4.min.js" />
     <Content Include="Areas\Manager\Content\js\jquery-ui.custom.min.js" />
@@ -368,6 +381,7 @@
     <Content Include="Areas\Manager\Content\js\plugins\jsTree\jstree.min.js" />
     <Content Include="Areas\Manager\Content\js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Areas\Manager\Content\js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\layer\extend\layer.ext.js" />
     <Content Include="Areas\Manager\Content\js\plugins\layer\laydate\laydate.js" />
     <Content Include="Areas\Manager\Content\js\plugins\layer\laydate\need\laydate.css" />
     <Content Include="Areas\Manager\Content\js\plugins\layer\laydate\skins\dahong\icon.png" />
@@ -386,6 +400,8 @@
     <Content Include="Areas\Manager\Content\js\plugins\layer\skin\default\loading-1.gif" />
     <Content Include="Areas\Manager\Content\js\plugins\layer\skin\default\loading-2.gif" />
     <Content Include="Areas\Manager\Content\js\plugins\layer\skin\layer.css" />
+    <Content Include="Areas\Manager\Content\js\plugins\layer\skin\layer.ext.css" />
+    <Content Include="Areas\Manager\Content\js\plugins\layer\skin\moon\style.css" />
     <Content Include="Areas\Manager\Content\js\plugins\markdown\bootstrap-markdown.js" />
     <Content Include="Areas\Manager\Content\js\plugins\markdown\bootstrap-markdown.zh.js" />
     <Content Include="Areas\Manager\Content\js\plugins\markdown\markdown.js" />
@@ -450,6 +466,8 @@
     <Content Include="Areas\Manager\Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Areas\Manager\Views\Home\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Main.cshtml" />
+    <Content Include="Areas\Manager\Views\Order\List.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -500,6 +518,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manager\Models\" />
+    <Folder Include="Areas\Manager\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

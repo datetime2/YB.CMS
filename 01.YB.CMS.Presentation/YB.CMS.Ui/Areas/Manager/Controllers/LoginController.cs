@@ -11,7 +11,7 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
         // GET: Manager/Login
         public ActionResult Out()
         {
-            return RedirectToAction("Index", "Manager/Login");
+            return RedirectToAction("Index", "Login");
         }
         public ActionResult Index()
         {

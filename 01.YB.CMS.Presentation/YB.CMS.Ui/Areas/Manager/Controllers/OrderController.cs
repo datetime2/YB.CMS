@@ -6,14 +6,10 @@ using System.Web.Mvc;
 
 namespace YB.CMS.Ui.Areas.Manager.Controllers
 {
-    public class HomeController : Controller
+    public class OrderController : Controller
     {
-        // GET: Manager/Home
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Main()
+        // GET: Manager/Order
+        public ActionResult List()
         {
             return View();
         }
