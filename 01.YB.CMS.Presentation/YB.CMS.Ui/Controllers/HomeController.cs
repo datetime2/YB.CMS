@@ -10,7 +10,7 @@ namespace YB.CMS.Ui.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Manager/Home");
         }
 
         public ActionResult About()

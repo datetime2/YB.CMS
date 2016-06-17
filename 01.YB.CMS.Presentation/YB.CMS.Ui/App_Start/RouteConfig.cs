@@ -12,11 +12,11 @@ namespace YB.CMS.Ui
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                "Default", // 路由名称  
+                "{controller}/{action}/{id}", // 带有参数的 URL  
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // 参数默认值  
+                , new string[] { "YB.CMS.Ui.Controllers" }
             );
         }
     }
