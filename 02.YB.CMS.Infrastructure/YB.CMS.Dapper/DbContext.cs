@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Configuration;
-using YB.CMS.Utility;
+using YB.CMS.Utility.Log;
 
 namespace YB.CMS.Infrastructure
 {

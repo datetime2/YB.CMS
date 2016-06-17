@@ -1,5 +1,5 @@
 ﻿[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Config/log4net.config", Watch = true)]
-namespace YB.CMS.Utility
+namespace YB.CMS.Utility.Log
 {
     using log4net;
     using System;
@@ -9,47 +9,16 @@ namespace YB.CMS.Utility
     /// </summary>
     public class Log
     {
-        /// <summary>
-        /// Error 信息记录
-        /// </summary>
-        /// <param name="strMessage">记录内容</param>
-        public static void Error(string strMessage)
+        public static void Debug(object message)
         {
-            log4net.ILog log = log4net.LogManager.GetLogger("Error");
-            if (log.IsErrorEnabled)
-            {
-                log.Error(strMessage);
-            }
-            log = null;
+            LogManager.GetLogger(GetCurrentMethodFullName()).Debug(message);
         }
 
-        /// <summary>
-        /// Debug 信息记录
-        /// </summary>
-        /// <param name="strMessage">记录内容</param>
-        public static void Debug(string strMessage)
+        public static void Debug(object message, Exception ex)
         {
-            log4net.ILog log = log4net.LogManager.GetLogger("Debug");
-            if (log.IsErrorEnabled)
-            {
-                log.Error(strMessage);
-            }
-            log = null;
+            LogManager.GetLogger(GetCurrentMethodFullName()).Debug(message, ex);
         }
 
-        /// <summary>
-        /// Info 信息记录
-        /// </summary>
-        /// <param name="message">记录内容</param>
-        public static void Info(string message)
-        {
-            log4net.ILog log = log4net.LogManager.GetLogger("Info");
-            if (log.IsInfoEnabled)
-            {
-                log.Info(message);
-            }
-            log = null;
-        }
         public static void Error(object message)
         {
             LogManager.GetLogger(GetCurrentMethodFullName()).Error(message);
@@ -81,6 +50,26 @@ namespace YB.CMS.Utility
             {
                 return null;
             }
+        }
+
+        public static void Info(object message)
+        {
+            LogManager.GetLogger(GetCurrentMethodFullName()).Info(message);
+        }
+
+        public static void Info(object message, Exception ex)
+        {
+            LogManager.GetLogger(GetCurrentMethodFullName()).Info(message, ex);
+        }
+
+        public static void Warn(object message)
+        {
+            LogManager.GetLogger(GetCurrentMethodFullName()).Warn(message);
+        }
+
+        public static void Warn(object message, Exception ex)
+        {
+            LogManager.GetLogger(GetCurrentMethodFullName()).Warn(message, ex);
         }
     }
 }
