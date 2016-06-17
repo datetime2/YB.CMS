@@ -1,57 +1,59 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using YB.CMS.Dapper;
+using YB.CMS.Infrastructure;
 using YB.CMS.IRepositories;
+using Dapper;
 using DapperExtensions;
 namespace YB.CMS.Repositories
 {
     /// <summary>
     /// 基础仓储
     /// </summary>
-    public abstract class Repository<T> : BaseRepository, IRepository<T> where T : class
+    public abstract class Repository<T> : DbContext, IRepository<T> where T : class
     {
-        public T Create(T model)
+        public bool Create(T model)
         {
-            string sql = string.Empty;
-            return InvokeDB<T>((context, s) =>
+            return QueryDb<bool>((context) =>
             {
-                return (T)context.Query<T>(s);
-            }, sql);
+                return context.Insert(model);
+            });
         }
-
         public T Find(Expression<Func<T, bool>> express)
         {
-            string sql = string.Empty;
-            return InvokeDB<T>((context, s) =>
+            return QueryDb<T>((context) =>
             {
-                return (T)context.Query<T>(s);
-            }, sql);
+                return context.GetList<T>(express).FirstOrDefault();
+            });
         }
-
-        public T Find(long id)
+        public IEnumerable<T> FindAll(Expression<Func<T, bool>> express)
         {
-            throw new NotImplementedException();
+            return QueryDb<IEnumerable<T>>((context) =>
+            {
+                return context.GetList<T>(express);
+            });
         }
-
-        public IQueryable<T> FindAll(Expression<Func<T, bool>> express)
+        public IEnumerable<T> GetPage(Expression<Func<T, bool>> predi, IList<ISort> sort, int page, int pagesize)
         {
-            throw new NotImplementedException();
+            return QueryDb<IEnumerable<T>>((context) =>
+            {
+                return context.GetPage<T>(predi, sort, page, pagesize);
+            });
         }
-
         public bool Remove(Expression<Func<T, bool>> predi)
         {
-            throw new NotImplementedException();
+            return QueryDb<bool>((context) =>
+            {
+                return context.Delete(predi);
+            });
         }
-
-        public bool Remove(long id)
+        public bool Update(T model)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Expression<Func<T, bool>> predi, Expression<Func<T, T>> filed)
-        {
-            throw new NotImplementedException();
+            return QueryDb<bool>((context) =>
+            {
+                return context.Update<T>(model);
+            });
         }
     }
 }
