@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using YB.CMS.Dapper;
 namespace YB.CMS.Repositories
 {
     public abstract class BaseRepository
