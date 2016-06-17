@@ -1,4 +1,4 @@
-﻿[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+﻿[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Config/log4net.config", Watch = true)]
 namespace YB.CMS.Utility
 {
     using log4net;
@@ -9,15 +9,47 @@ namespace YB.CMS.Utility
     /// </summary>
     public class Log
     {
-        public static void Debug(object message)
+        /// <summary>
+        /// Error 信息记录
+        /// </summary>
+        /// <param name="strMessage">记录内容</param>
+        public static void Error(string strMessage)
         {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Debug(message);
-        }
-        public static void Debug(object message, Exception ex)
-        {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Debug(message, ex);
+            log4net.ILog log = log4net.LogManager.GetLogger("Error");
+            if (log.IsErrorEnabled)
+            {
+                log.Error(strMessage);
+            }
+            log = null;
         }
 
+        /// <summary>
+        /// Debug 信息记录
+        /// </summary>
+        /// <param name="strMessage">记录内容</param>
+        public static void Debug(string strMessage)
+        {
+            log4net.ILog log = log4net.LogManager.GetLogger("Debug");
+            if (log.IsErrorEnabled)
+            {
+                log.Error(strMessage);
+            }
+            log = null;
+        }
+
+        /// <summary>
+        /// Info 信息记录
+        /// </summary>
+        /// <param name="message">记录内容</param>
+        public static void Info(string message)
+        {
+            log4net.ILog log = log4net.LogManager.GetLogger("Info");
+            if (log.IsInfoEnabled)
+            {
+                log.Info(message);
+            }
+            log = null;
+        }
         public static void Error(object message)
         {
             LogManager.GetLogger(GetCurrentMethodFullName()).Error(message);
@@ -27,34 +59,15 @@ namespace YB.CMS.Utility
         {
             LogManager.GetLogger(GetCurrentMethodFullName()).Error(message, exception);
         }
-        public static void Info(object message)
-        {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Info(message);
-        }
-
-        public static void Info(object message, Exception ex)
-        {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Info(message, ex);
-        }
-
-        public static void Warn(object message)
-        {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Warn(message);
-        }
-
-        public static void Warn(object message, Exception ex)
-        {
-            LogManager.GetLogger(GetCurrentMethodFullName()).Warn(message, ex);
-        }
         private static string GetCurrentMethodFullName()
         {
             try
             {
                 StackFrame frame;
                 string str2;
-                var num = 2;
-                var trace = new StackTrace();
-                var length = trace.GetFrames().Length;
+                int num = 2;
+                StackTrace trace = new StackTrace();
+                int length = trace.GetFrames().Length;
                 do
                 {
                     frame = trace.GetFrame(num++);

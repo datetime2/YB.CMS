@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -468,6 +480,7 @@
     <Content Include="Areas\Manager\Views\Login\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Home\Main.cshtml" />
     <Content Include="Areas\Manager\Views\Order\List.cshtml" />
+    <Content Include="Config\log4net.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -527,6 +540,24 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\03.YB.CMS.Domain\YB.CMS.IRepositories\YB.CMS.IRepositories.csproj">
+      <Project>{6508c0e9-cf22-4f09-a2fc-82deb2f8bbe6}</Project>
+      <Name>YB.CMS.IRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03.YB.CMS.Domain\YB.CMS.Models\YB.CMS.Models.csproj">
+      <Project>{e02b930f-0f49-484a-8175-9a891440fa6f}</Project>
+      <Name>YB.CMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03.YB.CMS.Domain\YB.CMS.Repositories\YB.CMS.Repositories.csproj">
+      <Project>{5dd9e721-53df-41db-920c-de55315f52ec}</Project>
+      <Name>YB.CMS.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\04.YB.CMS.Utility\YB.CMS.Utility\YB.CMS.Utility.csproj">
+      <Project>{d9f6a56c-4306-4a3d-a050-46f8910261ac}</Project>
+      <Name>YB.CMS.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
