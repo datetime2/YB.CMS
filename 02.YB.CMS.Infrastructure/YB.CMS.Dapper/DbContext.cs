@@ -4,29 +4,30 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Configuration;
 using YB.CMS.Utility.Log;
+using DapperEx;
 
 namespace YB.CMS.Infrastructure
 {
     public class DbContext
     {
-        private static readonly string Connecstring =
-            ConfigurationManager.ConnectionStrings["YBCMS"].ConnectionString;
+        public long total = 0;
+        public static string connectionName = "YBCMS";
+        public static DbBase CreateDbBase()
+        {
+            return new DbBase(connectionName);
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="action"></param>
-        protected static void QueryDb(Action<IDbConnection> action)
+        protected static void QueryDb(Action<DbBase> action)
         {
-            using (var context = new MySqlConnection(Connecstring))
+            using (var context = CreateDbBase())
             {
                 try
                 {
-                    context.Open();
                     action(context);
-                    context.Close();
                 }
                 catch (Exception ex)
                 {
@@ -38,26 +39,23 @@ namespace YB.CMS.Infrastructure
         /// 无返回值 使用事务 一般INSERT UPDATE 操作使用
         /// </summary>
         /// <param name="action"></param>
-        protected static void QueryDbTran(Action<IDbConnection> action)
+        protected static void QueryDbTran(Action<DbBase> action)
         {
-            using (var context = new MySqlConnection(Connecstring))
+            using (var context = CreateDbBase())
             {
-                context.Open();
-                var tran = context.BeginTransaction();
                 try
                 {
                     action(context);
-                    tran.Commit();
-                    context.Close();
+                    context.DbTransaction.Commit();
                 }
                 catch (Exception ex)
                 {
-                    tran.Rollback();
+                    context.DbTransaction.Rollback();
                     Log.Error("操作失败", ex);
                 }
                 finally
                 {
-                    tran.Dispose();
+                    context.DbTransaction.Dispose();
                 }
             }
         }
@@ -67,15 +65,13 @@ namespace YB.CMS.Infrastructure
         /// <typeparam name="T"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
-        protected static dynamic QueryDb<dynamic>(Func<IDbConnection, dynamic> func)
+        protected static dynamic QueryDb<dynamic>(Func<DbBase, dynamic> func)
         {
-            using (var context = new MySqlConnection(Connecstring))
+            using (var context = CreateDbBase())
             {
                 try
                 {
-                    context.Open();
                     var v = func(context);
-                    context.Close();
                     return v;
                 }
                 catch (Exception ex)
@@ -90,15 +86,13 @@ namespace YB.CMS.Infrastructure
         /// </summary>
         /// <param name="func"></param>
         /// <returns></returns>
-        protected static dynamic QueryDb(Func<IDbConnection, dynamic> func)
+        protected static dynamic QueryDb(Func<DbBase, dynamic> func)
         {
-            using (var context = new MySqlConnection(Connecstring))
+            using (var context = CreateDbBase())
             {
-                context.Open();
                 try
                 {
                     var v = func(context);
-                    context.Close();
                     return v;
                 }
                 catch (Exception ex)
@@ -113,28 +107,25 @@ namespace YB.CMS.Infrastructure
         /// </summary>
         /// <param name="func"></param>
         /// <returns></returns>
-        protected static dynamic QueryDbTran(Func<IDbConnection, dynamic> func)
+        protected static dynamic QueryDbTran(Func<DbBase, dynamic> func)
         {
-            using (var context = new MySqlConnection(Connecstring))
+            using (var context = CreateDbBase())
             {
-                context.Open();
-                var tran = context.BeginTransaction();
                 try
                 {
                     var v = func(context);
-                    tran.Commit();
-                    context.Close();
+                    context.DbTransaction.Commit();
                     return true;
                 }
                 catch (Exception ex)
                 {
                     Log.Error("操作失败", ex);
-                    tran.Rollback();
+                    context.DbTransaction.Rollback();
                     return false;
                 }
                 finally
                 {
-                    tran.Dispose();
+                    context.DbTransaction.Dispose();
                 }
             }
         }

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static YB.CMS.Models.Enum.OrderEnum;
 
 namespace YB.CMS.Models.Model
 {
     public class Himall_Orders
     {
         public long Id { get; set; }
-        public int OrderStatus { get; set; }
+        public OrderOperateStatus OrderStatus { get; set; }
         public System.DateTime OrderDate { get; set; }
         public string CloseReason { get; set; }
         public long ShopId { get; set; }

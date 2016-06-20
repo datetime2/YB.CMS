@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using DapperExtensions;
-
+using DapperEx;
 namespace YB.CMS.IRepositories
 {
     /// <summary>
@@ -17,7 +16,7 @@ namespace YB.CMS.IRepositories
         /// </summary>
         /// <param name="express">条件表达式</param>
         /// <returns></returns>
-        T Find(Expression<Func<T, bool>> express);
+        T Find(SqlQuery findsql);
         /// <summary>
         /// 新增
         /// </summary>
@@ -36,9 +35,5 @@ namespace YB.CMS.IRepositories
         /// <param name="predi">条件</param>
         /// <returns></returns>
         bool Remove(Expression<Func<T, bool>> predi);
-
-        IEnumerable<T> GetPage(Expression<Func<T, bool>> predi, IList<ISort> sort, int page, int pagesize);
-
-        IEnumerable<T> FindAll(PredicateGroup predi);
     }
 }

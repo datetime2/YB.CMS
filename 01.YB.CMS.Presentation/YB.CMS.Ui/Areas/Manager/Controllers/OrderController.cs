@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YB.CMS.Models.Model;
+using YB.CMS.Models.Query;
 using YB.CMS.IRepositories;
-using DapperExtensions;
 
 namespace YB.CMS.Ui.Areas.Manager.Controllers
 {
@@ -16,13 +16,32 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
         {
             this.IOrderRepository = _IOrderRepository;
         }
-        // GET: Manager/Order
+
+        #region View
         public ActionResult List()
         {
-            var pg = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
-            pg.Predicates.Add(Predicates.Field<Himall_Orders>(f => f.OrderStatus, Operator.Eq, 2));
-            var order = IOrderRepository.FindAll(pg);
-            return View(order);
+            return View();
         }
+        #endregion
+
+
+        #region Ajax Method
+        [HttpGet]
+        public JsonResult OrderList(long? orderid, DateTime? stime, DateTime? etime,string sortcolumn,string sortorder,int? page,int? pagesize)
+        {
+            var OrderQuery = new OrderQuery
+            {
+                OrderId = orderid,
+                OrderDateS = stime,
+                OrderDateE = etime,
+                SortColumn = sortcolumn,
+                SortOrder = sortorder,
+                Page = page,
+                PageSize = pagesize
+            };
+            var list = IOrderRepository.GetOrderList(OrderQuery);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

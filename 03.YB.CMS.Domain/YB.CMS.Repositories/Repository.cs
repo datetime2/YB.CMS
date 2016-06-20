@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using YB.CMS.Infrastructure;
 using YB.CMS.IRepositories;
 using Dapper;
-using DapperExtensions;
+using DapperEx;
 namespace YB.CMS.Repositories
 {
     /// <summary>
@@ -20,33 +20,18 @@ namespace YB.CMS.Repositories
                 return context.Insert(model);
             });
         }
-        public T Find(Expression<Func<T, bool>> express)
+        public T Find(SqlQuery findsql)
         {
             return QueryDb<T>((context) =>
             {
-                return context.GetList<T>(express).FirstOrDefault();
-            });
-        }
-
-        public IEnumerable<T> FindAll(PredicateGroup predi)
-        {
-            return QueryDb<IEnumerable<T>>((context) =>
-            {
-                return context.GetList<T>(predi);
-            });
-        }
-        public IEnumerable<T> GetPage(Expression<Func<T, bool>> predi, IList<ISort> sort, int page, int pagesize)
-        {
-            return QueryDb<IEnumerable<T>>((context) =>
-            {
-                return context.GetPage<T>(predi, sort, page, pagesize);
+                return context.SingleOrDefault<T>(findsql);
             });
         }
         public bool Remove(Expression<Func<T, bool>> predi)
         {
             return QueryDb<bool>((context) =>
             {
-                return context.Delete(predi);
+                return context.Delete<T>();
             });
         }
         public bool Update(T model)

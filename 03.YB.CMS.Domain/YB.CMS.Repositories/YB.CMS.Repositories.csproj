@@ -30,12 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper">
-      <HintPath>..\..\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="DapperExtensions, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\YB.CMS.libs\DapperExtensions.dll</HintPath>
+      <HintPath>..\..\packages\YB.CMS.libs\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DapperEx">
+      <HintPath>..\..\packages\YB.CMS.libs\DapperEx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -56,6 +56,10 @@
     <ProjectReference Include="..\..\02.YB.CMS.Infrastructure\YB.CMS.Dapper\YB.CMS.Infrastructure.csproj">
       <Project>{6a22577b-732c-4ac2-92f9-c20d9f7597ab}</Project>
       <Name>YB.CMS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\04.YB.CMS.Utility\YB.CMS.Utility\YB.CMS.Utility.csproj">
+      <Project>{d9f6a56c-4306-4a3d-a050-46f8910261ac}</Project>
+      <Name>YB.CMS.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\YB.CMS.IRepositories\YB.CMS.IRepositories.csproj">
       <Project>{6508c0e9-cf22-4f09-a2fc-82deb2f8bbe6}</Project>

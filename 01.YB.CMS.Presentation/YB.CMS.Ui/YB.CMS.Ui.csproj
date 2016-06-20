@@ -56,12 +56,12 @@
       <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dapper">
-      <HintPath>..\..\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="DapperExtensions, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\YB.CMS.libs\DapperExtensions.dll</HintPath>
+      <HintPath>..\..\packages\YB.CMS.libs\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DapperEx">
+      <HintPath>..\..\packages\YB.CMS.libs\DapperEx.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -161,6 +161,8 @@
     <Content Include="Areas\Manager\Content\css\patterns\header-profile-skin-3.png" />
     <Content Include="Areas\Manager\Content\css\patterns\header-profile.png" />
     <Content Include="Areas\Manager\Content\css\patterns\shattered.png" />
+    <Content Include="Areas\Manager\Content\css\plugins\angularjs\jquery.datetimepicker.css" />
+    <Content Include="Areas\Manager\Content\css\plugins\angularjs\ng-table.css" />
     <Content Include="Areas\Manager\Content\css\plugins\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css" />
     <Content Include="Areas\Manager\Content\css\plugins\blueimp\css\blueimp-gallery.min.css" />
     <Content Include="Areas\Manager\Content\css\plugins\blueimp\img\error.png" />
@@ -256,7 +258,7 @@
     <Content Include="Areas\Manager\Content\js\bootstrap.min.js" />
     <Content Include="Areas\Manager\Content\js\contabs.min.js" />
     <Content Include="Areas\Manager\Content\js\content.min.js" />
-    <Content Include="Areas\Manager\Content\js\demo\bootstrap-table-demo.min.js" />
+    <Content Include="Areas\Manager\Content\js\controllers\orderController.js" />
     <Content Include="Areas\Manager\Content\js\demo\echarts-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\demo\flot-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\demo\form-advanced-demo.min.js" />
@@ -269,9 +271,17 @@
     <Content Include="Areas\Manager\Content\js\demo\treeview-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\demo\webuploader-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\hplus.min.js" />
+    <Content Include="Areas\Manager\Content\js\cms.common.js" />
     <Content Include="Areas\Manager\Content\js\jquery-ui-1.10.4.min.js" />
     <Content Include="Areas\Manager\Content\js\jquery-ui.custom.min.js" />
     <Content Include="Areas\Manager\Content\js\jquery.min.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\angular-echarts.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\angular-resource.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\angular.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\datepicker.directive.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\echart.report.directive.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\ng-table.min.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\util.js" />
     <Content Include="Areas\Manager\Content\js\plugins\beautifyhtml\beautifyhtml.js" />
     <Content Include="Areas\Manager\Content\js\plugins\blueimp\jquery.blueimp-gallery.min.js" />
     <Content Include="Areas\Manager\Content\js\plugins\bootstrap-table\bootstrap-table-mobile.min.js" />
@@ -285,6 +295,7 @@
     <Content Include="Areas\Manager\Content\js\plugins\colorpicker\bootstrap-colorpicker.min.js" />
     <Content Include="Areas\Manager\Content\js\plugins\cropper\cropper.min.js" />
     <Content Include="Areas\Manager\Content\js\plugins\datapicker\bootstrap-datepicker.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\datapicker\jquery.datetimepicker.js" />
     <Content Include="Areas\Manager\Content\js\plugins\dataTables\dataTables.bootstrap.js" />
     <Content Include="Areas\Manager\Content\js\plugins\dataTables\jquery.dataTables.js" />
     <Content Include="Areas\Manager\Content\js\plugins\diff_match_patch\diff_match_patch.js" />

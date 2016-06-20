@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DapperExtensions">
-      <HintPath>..\..\packages\YB.CMS.libs\DapperExtensions.dll</HintPath>
+    <Reference Include="DapperEx">
+      <HintPath>..\..\packages\YB.CMS.libs\DapperEx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
