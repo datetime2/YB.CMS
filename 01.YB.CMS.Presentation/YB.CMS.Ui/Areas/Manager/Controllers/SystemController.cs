@@ -24,8 +24,8 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
         [HttpGet]
         public JsonResult getDistributor()
         {
-            //var list = _systemService.get_urltype();
-            return Json(null, JsonRequestBehavior.AllowGet);
+            var list = IDistributorRepository.DropDistributor();
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
     }
 }
