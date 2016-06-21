@@ -259,6 +259,7 @@
     <Content Include="Areas\Manager\Content\js\bootstrap.min.js" />
     <Content Include="Areas\Manager\Content\js\contabs.min.js" />
     <Content Include="Areas\Manager\Content\js\content.min.js" />
+    <Content Include="Areas\Manager\Content\js\controllers\homeController.js" />
     <Content Include="Areas\Manager\Content\js\controllers\orderController.js" />
     <Content Include="Areas\Manager\Content\js\demo\echarts-demo.min.js" />
     <Content Include="Areas\Manager\Content\js\demo\flot-demo.min.js" />

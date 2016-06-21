@@ -49,6 +49,9 @@ namespace YB.CMS.Repositories
                     case "IsPush":
                         d.OrderBy(m => m.IsPush, query.IsDesc);
                         break;
+                    case "PlatFrom":
+                        d.OrderBy(m => m.Platform, query.IsDesc);
+                        break;
                     default:
                         d.OrderBy(m => m.OrderDate, true);
                         break;

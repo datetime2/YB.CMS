@@ -13,70 +13,72 @@
     <script src="~/Areas/Manager/Content/js/plugins/angularjs/plugins/datepicker.directive.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/datapicker/jquery.datetimepicker.js"></script>
 }
-<div class="ibox float-e-margins">
-    <div class="ibox-content">
-        <div class="row row-lg">
-            <div class="col-xs-12 col-md-12">
-                <div class="example-wrap">
-                    <div class="example" ng-controller="orderCtrl">
-                        <div class="alert">
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <span class="input-icon">
-                                        <input type="number" class="form-control input-sm" placeholder="订单号" ng-model="vm.orderid">
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <div class="controls">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input class="form-control input-sm" type="text" datetimepicker ng-model="vm.stime" placeholder="开始时间" />
+<div class="wrapper wrapper-content" ng-controller="orderCtrl">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="row row-lg">
+                <div class="col-xs-12 col-md-12">
+                    <div class="example-wrap">
+                        <div class="example">
+                            <div class="alert">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <span class="input-icon">
+                                            <input type="number" class="form-control input-sm" placeholder="订单号" ng-model="vm.orderid">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                                <input class="form-control input-sm" type="text" datetimepicker ng-model="vm.stime" placeholder="开始时间" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="controls">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <input class="form-control input-sm" type="text" datetimepicker ng-model="vm.etime" placeholder="结束时间" />
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                                <input class="form-control input-sm" type="text" datetimepicker ng-model="vm.etime" placeholder="结束时间" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="controls">
-                                        <div class="input-group">
-                                            <span class="input-group-addon input-sm">
-                                                分销商
-                                            </span>
-                                            <select class="form-control input-sm" ng-change="search()" ng-model="vm.distributor" ng-options="page.Name for page in selectParams"></select>
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <span class="input-group-addon input-sm">
+                                                    分销商
+                                                </span>
+                                                <select class="form-control input-sm" ng-change="search()" ng-model="vm.distributor" ng-options="page.Name for page in selectParams"></select>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <button type="button" class="btn btn-sm" ng-click="search()"><i class="fa fa-search">查询</i></button>
-                                <button type="button" class="btn btn-sm" ng-click="clear()"><i class="fa fa-undo">撤销</i></button>
-                            </form>
-                        </div>
-                        <div class="flip-scroll">
-                            <table ng-table="tableParams" class="table table-striped table-condensed flip-content table-hover">
-                                <tr ng-repeat="row in $data">
-                                    @*<td data-title="'订单来源'" sortable="'PlatFrom'">{{row.PlatFrom}}</td>*@
-                                    <td data-title="'订单号'" sortable="'Id'">{{row.Id}}</td>
-                                    <td data-title="'买家'" sortable="'UserName'">{{row.UserName}}</td>
-                                    <td data-title="'收货人'">{{row.ShipTo}}</td>
-                                    <td data-title="'下单时间'" sortable="'OrderDate'">{{row.OrderDate|jsonDate:'yyyy-MM-dd HH:mm:ss'}}</td>
-                                    <td data-title="'订单总额'">{{row.OrderTotalPrice|number:2}}</td>
-                                    <td data-title="'支付金额'">{{row.OrderTotalPay|number:2}}</td>
-                                    <td data-title="'订单状态'" sortable="'OrderStatus'">{{row.OrderStatus}}</td>
-                                    <td data-title="'发货仓'">{{row.ShopName}}</td>
-                                    <td data-title="'税费'" sortable="'PushCustomsTax'">{{row.PushCustomsTax|number:2}}</td>
-                                    <td data-title="'是否推送'" sortable="'IsPush'">{{row.IsPush}}</td>
-                                </tr>
-                                <tr ng-show="$data.length==0"><td colspan="11" align="center">没有数据</td></tr>
-                            </table>
+                                    <button type="button" class="btn btn-sm" ng-click="search()"><i class="fa fa-search">查询</i></button>
+                                    <button type="button" class="btn btn-sm" ng-click="clear()"><i class="fa fa-undo">撤销</i></button>
+                                </form>
+                            </div>
+                            <div class="flip-scroll">
+                                <table ng-table="tableParams" class="table table-striped table-condensed flip-content table-hover">
+                                    <tr ng-repeat="row in $data">
+                                        <td data-title="'订单来源'" sortable="'PlatFrom'">{{row.PlatFrom}}</td>
+                                        <td data-title="'订单号'" sortable="'Id'">{{row.Id}}</td>
+                                        <td data-title="'买家'" sortable="'UserName'">{{row.UserName}}</td>
+                                        <td data-title="'收货人'">{{row.ShipTo}}</td>
+                                        <td data-title="'下单时间'" sortable="'OrderDate'">{{row.OrderDate|jsonDate:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                        <td data-title="'订单总额'">{{row.OrderTotalPrice|number:2}}</td>
+                                        <td data-title="'支付金额'">{{row.OrderTotalPay|number:2}}</td>
+                                        <td data-title="'订单状态'" sortable="'OrderStatus'">{{row.OrderStatus}}</td>
+                                        <td data-title="'发货仓'">{{row.ShopName}}</td>
+                                        <td data-title="'税费'" sortable="'PushCustomsTax'">{{row.PushCustomsTax|number:2}}</td>
+                                        <td data-title="'是否推送'" sortable="'IsPush'">{{row.IsPush}}</td>
+                                    </tr>
+                                    <tr ng-show="$data.length==0"><td colspan="11" align="center">没有数据</td></tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
