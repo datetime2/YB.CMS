@@ -69,11 +69,11 @@
                                         <td data-title="'买家'" sortable="'UserName'">{{row.UserName}}</td>
                                         <td data-title="'收货人'">{{row.ShipTo}}</td>
                                         <td data-title="'下单时间'" sortable="'OrderDate'">{{row.OrderDate|jsonDate:'yyyy-MM-dd HH:mm:ss'}}</td>
-                                        <td data-title="'订单总额'">{{row.OrderTotalPrice|number:2}}</td>
-                                        <td data-title="'支付金额'">{{row.OrderTotalPay|number:2}}</td>
+                                        <td data-title="'订单总额'">{{row.OrderTotalPrice|currency:'￥'}}</td>
+                                        <td data-title="'支付金额'">{{row.OrderTotalPay|currency:'￥'}}</td>
                                         <td data-title="'订单状态'" sortable="'OrderStatus'">{{row.OrderStatus}}</td>
                                         <td data-title="'发货仓'">{{row.ShopName}}</td>
-                                        <td data-title="'税费'" sortable="'PushCustomsTax'">{{row.PushCustomsTax|number:2}}</td>
+                                        <td data-title="'税费'" sortable="'PushCustomsTax'">{{row.PushCustomsTax|currency:'￥'}}</td>
                                         <td data-title="'是否推送'" sortable="'IsPush'">{{row.IsPush}}</td>
                                     </tr>
                                     <tr ng-show="$data.length==0"><td colspan="11" align="center">没有数据</td></tr>
