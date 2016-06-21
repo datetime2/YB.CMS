@@ -9,6 +9,9 @@
             sortorder: "",
             sortcolumn: ""
         };
+        orderService.getDistributor().then(function (data) {
+            $scope.selectParams = data;
+        });
         $scope.tableParams = new ngTableParams(
         {
             page: 1,
@@ -47,12 +50,12 @@
             $scope.tableParams.reload();
         };
     }).
-    service("orderService", function ($http) {
+    service("orderService", function ($http, $q) {
         var service = {
             orderList: function ($defer, params) {
                 $http.get("/Manager/Order/OrderList", {
                     params: {
-                        page: params.page()-1,
+                        page: params.page() - 1,
                         pagesize: params.pagesize,
                         orderid: params.orderid,
                         stime: params.stime,
@@ -70,10 +73,7 @@
             },
             getDistributor: function () {
                 var defer = $q.defer();
-                $http.get("/System/GetSysUrlType", {
-                    params: {
-                        _: Math.random()
-                    }
+                $http.get("/Manager/System/getDistributor", {
                 })
                     .success(function (resp) {
                         defer.resolve(resp);
@@ -84,9 +84,9 @@
             }
         }
         return service;
-    }).filter("jsonDate", function($filter) {
-      return function(input, format) {
-           var timestamp = Number(input.replace(/\/Date\((\d+)\)\//, "$1"));
-           return $filter("date")(timestamp, format);
-      };
-});
+    }).filter("jsonDate", function ($filter) {
+        return function (input, format) {
+            var timestamp = Number(input.replace(/\/Date\((\d+)\)\//, "$1"));
+            return $filter("date")(timestamp, format);
+        };
+    });
