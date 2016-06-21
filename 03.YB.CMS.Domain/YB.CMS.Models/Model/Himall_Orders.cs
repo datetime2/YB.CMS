@@ -46,7 +46,7 @@ namespace YB.CMS.Models.Model
         public decimal CommisTotalAmount { get; set; }
         public decimal RefundCommisAmount { get; set; }
         public int ActiveType { get; set; }
-        public int Platform { get; set; }
+        public PlatformType Platform { get; set; }
         public decimal DiscountAmount { get; set; }
         public decimal IntegralDiscount { get; set; }
         public string InvoiceContext { get; set; }

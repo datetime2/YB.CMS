@@ -35,5 +35,6 @@ namespace YB.CMS.Models.View
         public string ShopName { get; set; }
         public string OrderStatus { get; set; }
         public string IsPush { get; set; }
+        public string PlatFrom { get; set; }
     }
 }

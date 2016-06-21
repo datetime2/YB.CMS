@@ -67,7 +67,8 @@ namespace YB.CMS.Repositories
                     ShopName = item.ShopName,
                     IsPush = item.IsPush == 1 ? "是" : "否",
                     IntegralDiscount = item.IntegralDiscount,
-                    DiscountAmount = item.DiscountAmount
+                    DiscountAmount = item.DiscountAmount,
+                    PlatFrom = item.Platform.ToDescription()
                 }).ToList();
                 grid.total = total;
                 return grid;
