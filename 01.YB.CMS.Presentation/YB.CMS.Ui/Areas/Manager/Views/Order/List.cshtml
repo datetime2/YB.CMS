@@ -52,7 +52,7 @@
                                             <span class="input-group-addon input-sm">
                                                 分销商
                                             </span>
-                                            <select class="form-control input-sm" ng-change="search()" ng-options="page.url_type for page in selectParams"></select>
+                                            <select class="form-control input-sm" ng-change="search()" ng-model="vm.distributor" ng-options="page.Name for page in selectParams"></select>
                                         </div>
                                     </div>
                                 </div>

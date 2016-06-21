@@ -27,6 +27,8 @@ namespace YB.CMS.Repositories
                 if (query.OrderDateS.HasValue && query.OrderDateE.HasValue)
                     d.AndWhere(m => m.OrderDate, OperationMethod.Greater, query.OrderDateS.Value)
                      .AndWhere(m => m.OrderDate, OperationMethod.LessOrEqual, query.OrderDateE.Value);
+                if (query.DistributorId.HasValue)
+                    d.AndWhere(m => m.DistributorID, OperationMethod.Equal, query.DistributorId.Value);
                 switch (query.SortColumn)
                 {
                     case "Id":

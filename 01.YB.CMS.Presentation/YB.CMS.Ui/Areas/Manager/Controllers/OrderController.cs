@@ -27,7 +27,7 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
 
         #region Ajax Method
         [HttpGet]
-        public JsonResult OrderList(long? orderid, DateTime? stime, DateTime? etime,string sortcolumn,string sortorder,int? page,int? pagesize)
+        public JsonResult OrderList(long? orderid, DateTime? stime, DateTime? etime,string sortcolumn,string sortorder,int? page,int? pagesize,int? distributor)
         {
             var OrderQuery = new OrderQuery
             {
@@ -37,7 +37,8 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
                 SortColumn = sortcolumn,
                 IsDesc = sortorder == "desc",
                 Page = page,
-                PageSize = pagesize
+                PageSize = pagesize,
+                DistributorId = distributor
             };
             var list = IOrderRepository.GetOrderList(OrderQuery);
             return Json(list, JsonRequestBehavior.AllowGet);

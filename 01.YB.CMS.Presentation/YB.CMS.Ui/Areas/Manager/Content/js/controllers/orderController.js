@@ -7,7 +7,8 @@
             pagesize: 20,
             total: 0,
             sortorder: "",
-            sortcolumn: ""
+            sortcolumn: "",
+            distributor: []
         };
         orderService.getDistributor().then(function (data) {
             $scope.selectParams = data;
@@ -31,12 +32,13 @@
                 params.etime = vm.etime;
                 params.sortcolumn = vm.sortcolumn;
                 params.sortorder = vm.sortorder;
+                params.distributor = vm.distributor.Id;
                 orderService.orderList($defer, params);
                 vm.total = params.total;
             }
         });
         $scope.search = function () {
-            if (vm.orderid === "" && vm.stime === "" && vm.etime === "") {
+            if (vm.orderid === "" && vm.stime === "" && vm.etime === "" && vm.distributor.Id == "") {
                 return;
             }
             $scope.tableParams.page(1);
@@ -46,6 +48,7 @@
             vm.etime = new Date(new Date().getTime()).format('yyyy-mm-dd');
             vm.stime = new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).format('yyyy-mm-dd');
             vm.orderid = "";
+            vm.distributor = [];
             $scope.tableParams.page(1);
             $scope.tableParams.reload();
         };
@@ -61,15 +64,15 @@
                         stime: params.stime,
                         etime: params.etime,
                         sortorder: params.sortorder,
-                        sortcolumn: params.sortcolumn
+                        sortcolumn: params.sortcolumn,
+                        distributor: params.distributor
                     }
-                })
-                    .success(function (resp) {
-                        params.total(resp.total);
-                        $defer.resolve(resp.data);
-                    }).error(function () {
-                        $defer.reject("获取数据异常");
-                    });
+                }).success(function (resp) {
+                    params.total(resp.total);
+                    $defer.resolve(resp.data);
+                }).error(function () {
+                    $defer.reject("获取数据异常");
+                });
             },
             getDistributor: function () {
                 var defer = $q.defer();
