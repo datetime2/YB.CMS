@@ -26,8 +26,8 @@ namespace YB.CMS.Models.Query
         /// </summary>
         public string SortColumn { get; set; }
         /// <summary>
-        /// 排序类型(asc,升序;desc,降序)
+        /// 是否降序(true,降序;false,升序)
         /// </summary>
-        public string SortOrder { get; set; }
+        public bool IsDesc { get; set; }
     }
 }

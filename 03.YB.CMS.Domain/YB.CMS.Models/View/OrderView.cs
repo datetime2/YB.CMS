@@ -16,8 +16,24 @@ namespace YB.CMS.Models.View
         public decimal ProductTotalAmount { get; set; }
         public decimal PushCustomsTax { get; set; }
         public decimal Freight { get; set; }
+        /// <summary>
+        /// 订单总额
+        /// </summary>
         public decimal OrderTotalPrice { get { return this.ProductTotalAmount + this.PushCustomsTax + this.Freight; } }
+        public decimal IntegralDiscount { get; set; }
+        public decimal DiscountAmount { get; set; }
+        /// <summary>
+        /// 订单实付金额
+        /// </summary>
+        public decimal OrderTotalPay
+        {
+            get
+            {
+                return this.ProductTotalAmount + this.Freight + this.PushCustomsTax - this.IntegralDiscount - this.DiscountAmount;
+            }
+        }
         public string ShopName { get; set; }
         public string OrderStatus { get; set; }
+        public string IsPush { get; set; }
     }
 }

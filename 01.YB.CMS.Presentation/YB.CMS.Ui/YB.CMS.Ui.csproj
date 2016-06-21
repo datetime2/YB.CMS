@@ -145,6 +145,7 @@
     <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
     <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manager\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Manager\Controllers\SystemController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -472,6 +473,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manager\Models\" />
     <Folder Include="Areas\Manager\Views\Product\" />
+    <Folder Include="Areas\Manager\Views\System\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -35,7 +35,7 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
                 OrderDateS = stime,
                 OrderDateE = etime,
                 SortColumn = sortcolumn,
-                SortOrder = sortorder,
+                IsDesc = sortorder == "desc",
                 Page = page,
                 PageSize = pagesize
             };

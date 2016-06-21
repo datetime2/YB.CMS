@@ -2,8 +2,8 @@
     controller('orderCtrl', function ($scope, ngTableParams, orderService) {
         var vm = $scope.vm = {
             orderid: "",
-            stime: "",//new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000).format('yyyy-mm-dd'),
-            etime: "",//new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000).format('yyyy-mm-dd'),
+            stime: new Date(new Date().getTime()).format('yyyy-mm-dd'),
+            etime: new Date(new Date().getTime()).format('yyyy-mm-dd'),
             pagesize: 20,
             total: 0,
             sortorder: "",
@@ -67,18 +67,26 @@
                     }).error(function () {
                         $defer.reject("获取数据异常");
                     });
+            },
+            getDistributor: function () {
+                var defer = $q.defer();
+                $http.get("/System/GetSysUrlType", {
+                    params: {
+                        _: Math.random()
+                    }
+                })
+                    .success(function (resp) {
+                        defer.resolve(resp);
+                    }).error(function () {
+                        defer.reject("获取数据异常");
+                    });
+                return defer.promise;
             }
         }
         return service;
-    }).filter("click_rate_output", function () {
-        return function (input) {
-            var out = input;
-            if (input === '0.00')
-                out = "-";
-            else if (input > 0)
-                out = "↑ " + (parseFloat(input) * 100).toFixed(2) + " %";
-            else
-                out = "↓ " + ((0 - parseFloat(input)) * 100).toFixed(2) + " %";
-            return out;
-        }
-    });
+    }).filter("jsonDate", function($filter) {
+      return function(input, format) {
+           var timestamp = Number(input.replace(/\/Date\((\d+)\)\//, "$1"));
+           return $filter("date")(timestamp, format);
+      };
+});
