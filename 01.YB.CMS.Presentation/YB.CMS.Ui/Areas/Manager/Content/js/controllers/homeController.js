@@ -1,4 +1,4 @@
-﻿var app = angular.module('CmsApp', []).controller('homeCtrl', function ($scope, homeService) {
+﻿var app = angular.module('CmsApp', ['angular-flot']).controller('homeCtrl', function ($scope, homeService) {
     var vm = $scope.vm = {
         inbox: {}
     };

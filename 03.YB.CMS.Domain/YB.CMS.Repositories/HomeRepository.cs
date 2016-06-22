@@ -39,5 +39,12 @@ namespace YB.CMS.Repositories
             return home;
             //});
         }
+
+        #region PrivateMethod
+        private List<DateXYaxis> xyaxis(int interval)
+        {
+            return null;
+        }
+        #endregion
     }
 }

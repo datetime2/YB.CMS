@@ -280,6 +280,7 @@
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\angular-echarts.js" />
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\angular-resource.js" />
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\angular.js" />
+    <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\angular-flot.js" />
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\datepicker.directive.js" />
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\echart.report.directive.js" />
     <Content Include="Areas\Manager\Content\js\plugins\angularjs\plugins\ng-table.min.js" />

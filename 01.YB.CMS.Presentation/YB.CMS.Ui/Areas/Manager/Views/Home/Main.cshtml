@@ -4,6 +4,7 @@
     Layout = "~/Areas/Manager/Views/Shared/_LayoutPage.cshtml";
 }
 @section scripts{
+    <script src="~/Areas/Manager/Content/js/plugins/angularjs/plugins/angular-flot.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/flot/jquery.flot.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/flot/jquery.flot.spline.js"></script>
@@ -47,7 +48,7 @@
                 splines: {
                     show: false,
                     tension: 0.6,
-                    lineWidth: 1,
+                    lineWidth: 0,
                     fill: 0.1
                 },
             }];
@@ -173,6 +174,9 @@
                         <div class="col-sm-9">
                             <div class="flot-chart">
                                 <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+
+
+
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -221,33 +225,18 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>店铺(个)</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-hover margin bottom">
-                        <thead>
-                            <tr>
-                                <th>交易</th>
-                                <th class="text-center">日期</th>
-                                <th class="text-center">销售额</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    防盗门
+                                    <small>
+                                        防盗门
                                     </small>
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;483.00</span>
+                                    <span class="label label-primary">483.00</span>
                                 </td>
 
                             </tr>
@@ -255,9 +244,8 @@
                                 <td>
                                     衣柜
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;327.00</span>
+                                    <span class="label label-primary">327.00</span>
                                 </td>
 
                             </tr>
@@ -265,31 +253,27 @@
                                 <td>
                                     防盗门
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-warning">&yen;125.00</span>
+                                    <span class="label label-warning">125.00</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>橱柜</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;344.00</span>
+                                    <span class="label label-primary">344.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>手机</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;235.00</span>
+                                    <span class="label label-primary">235.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>显示器</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;100.00</span>
+                                    <span class="label label-primary">100.00</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -301,33 +285,18 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>商品(件)</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-hover margin bottom">
-                        <thead>
-                            <tr>
-                                <th>交易</th>
-                                <th class="text-center">日期</th>
-                                <th class="text-center">销售额</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    防盗门
+                                    <small>
+                                        待审核商品
                                     </small>
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;483.00</span>
+                                    <span class="label label-primary">25</span>
                                 </td>
 
                             </tr>
@@ -335,9 +304,8 @@
                                 <td>
                                     衣柜
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;327.00</span>
+                                    <span class="label label-primary">327.00</span>
                                 </td>
 
                             </tr>
@@ -345,31 +313,26 @@
                                 <td>
                                     防盗门
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-warning">&yen;125.00</span>
+                                    <span class="label label-warning">125.00</span>
                                 </td>
-
                             </tr>
                             <tr>
                                 <td>橱柜</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;344.00</span>
+                                    <span class="label label-primary">344.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>手机</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;235.00</span>
+                                    <span class="label label-primary">235.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>显示器</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;100.00</span>
+                                    <span class="label label-primary">100.00</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -381,33 +344,18 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>支付(笔)</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-hover margin bottom">
-                        <thead>
-                            <tr>
-                                <th>交易</th>
-                                <th class="text-center">日期</th>
-                                <th class="text-center">销售额</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    防盗门
+                                    <small>
+                                        防盗门
                                     </small>
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;483.00</span>
+                                    <span class="label label-primary">483.00</span>
                                 </td>
 
                             </tr>
@@ -415,9 +363,8 @@
                                 <td>
                                     衣柜
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;327.00</span>
+                                    <span class="label label-primary">327.00</span>
                                 </td>
 
                             </tr>
@@ -425,31 +372,27 @@
                                 <td>
                                     防盗门
                                 </td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-warning">&yen;125.00</span>
+                                    <span class="label label-warning">125.00</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>橱柜</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;344.00</span>
+                                    <span class="label label-primary">344.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>手机</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;235.00</span>
+                                    <span class="label label-primary">235.00</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>显示器</td>
-                                <td class="text-center small">2014.9.15</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">&yen;100.00</span>
+                                    <span class="label label-primary">100.00</span>
                                 </td>
                             </tr>
                         </tbody>

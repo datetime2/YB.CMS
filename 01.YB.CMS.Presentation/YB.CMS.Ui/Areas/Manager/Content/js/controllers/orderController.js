@@ -87,9 +87,20 @@
             }
         }
         return service;
-    }).filter("jsonDate", function ($filter) {
+    }).filter("jsonDate", ['$filter', function ($filter) {
         return function (input, format) {
             var timestamp = Number(input.replace(/\/Date\((\d+)\)\//, "$1"));
             return $filter("date")(timestamp, format);
         };
-    });
+    }]).filter("order_paltform", ['$sce', function ($sce) {
+        return function (input, orderid) {
+            var text = input;
+            if (input === '移动端')
+                text = "<i class=\"fa fa-android\"></i>";
+            else if (input === 'PC')
+                text = "<i class=\"fa fa-apple\"></i>";
+            else
+                text = "<i class=\"fa fa-level-down\"></i>";
+            return $sce.trustAsHtml(text + " " + orderid);
+        }
+    }]);
