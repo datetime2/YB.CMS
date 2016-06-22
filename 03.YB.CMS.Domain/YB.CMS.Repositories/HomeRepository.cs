@@ -15,16 +15,19 @@ namespace YB.CMS.Repositories
         {
             return QueryDb<PlatHomeView>((context) =>
             {
+
+                //数据库操作
+
                 var home = new PlatHomeView
                 {
-
-
-
-
                     OrderNumber = new LongTrend
                     {
                         TodayNumber = 5263,
                         ContrastNumber = 2365
+                    },
+                    OrderTotalNumber=new LongTrend {
+                        TodayNumber = 5263,
+                        ContrastNumber = 105623
                     },
                     SaleAmount = new DecimalTrend
                     {
@@ -41,8 +44,8 @@ namespace YB.CMS.Repositories
                         TodayNumber = 268,
                         ContrastNumber = 1658
                     },
-                    OrderLines = GetEchartLine(6, DateTime.Now),
-                    OrderPayLines = GetEchartLineX(6, DateTime.Now)
+                    OrderLines = GetEchartLine(6, DateTime.Today),
+                    OrderPayLines = GetEchartLine(6, DateTime.Today)
                 };
                 return home;
             });
@@ -55,26 +58,11 @@ namespace YB.CMS.Repositories
             var dayX = new List<long[,]>();
             for (var i = days; i >= 0; i--)
             {
-                Thread.Sleep(200);
                 var rand = new Random().Next(100, 999);
                 dayX.Add(new long[,] { { endtime.Value.AddDays(0 - i).Subtract(span).Ticks / 10000, rand } });
             }
             return dayX;
         }
-
-        private List<long[,]> GetEchartLineX(int days, DateTime? endtime)
-        {
-            var span = new TimeSpan(DateTime.Parse("1/1/1970").Ticks);
-            var dayX = new List<long[,]>();
-            for (var i = days; i >= 0; i--)
-            {
-                Thread.Sleep(200);
-                var rand = new Random().Next(80, 800);
-                dayX.Add(new long[,] { { endtime.Value.AddDays(0 - i).Subtract(span).Ticks / 10000, rand } });
-            }
-            return dayX;
-        }
-
         #endregion
     }
 }

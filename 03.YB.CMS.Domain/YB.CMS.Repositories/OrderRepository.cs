@@ -26,7 +26,7 @@ namespace YB.CMS.Repositories
                     d.AndWhere(m => m.Id, OperationMethod.Equal, query.OrderId.Value);
                 if (query.OrderDateS.HasValue && query.OrderDateE.HasValue)
                     d.AndWhere(m => m.OrderDate, OperationMethod.Greater, query.OrderDateS.Value)
-                     .AndWhere(m => m.OrderDate, OperationMethod.LessOrEqual, query.OrderDateE.Value);
+                     .AndWhere(m => m.OrderDate, OperationMethod.Less, query.OrderDateE.Value.AddHours(23).AddMinutes(59).AddSeconds(59));
                 if (query.DistributorId.HasValue)
                     d.AndWhere(m => m.DistributorID, OperationMethod.Equal, query.DistributorId.Value);
                 switch (query.SortColumn)
@@ -77,7 +77,6 @@ namespace YB.CMS.Repositories
                 return grid;
             });
         }
-
         #region Private Method
        
         #endregion

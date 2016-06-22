@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "首页";
     Layout = "~/Areas/Manager/Views/Shared/_LayoutPage.cshtml";
 }
@@ -88,13 +87,13 @@
                         <div class="col-sm-3">
                             <ul class="stat-list">
                                 <li>
-                                    <h2 class="no-margins">2,346</h2>
+                                    <h2 class="no-margins">{{vm.OrderTotalNumber.TodayNumber}}</h2>
                                     <small>订单总数</small>
                                     <div class="stat-percent">
-                                        48% <i class="fa fa-level-up text-navy"></i>
+                                        {{((vm.OrderTotalNumber.TodayNumber/vm.OrderTotalNumber.ContrastNumber)|number:2)*100+'%'}}
                                     </div>
                                     <div class="progress progress-mini">
-                                        <div style="width: 48%;" class="progress-bar"></div>
+                                        <div style="width: {{((vm.OrderTotalNumber.TodayNumber/vm.OrderTotalNumber.ContrastNumber)|number:2)*100+'%'}};" class="progress-bar"></div>
                                     </div>
                                 </li>
                                 <li>
@@ -136,48 +135,36 @@
                             <tr>
                                 <td>
                                     <small>
-                                        防盗门
+                                        今日新增
                                     </small>
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-primary">483.00</span>
+                                    <span class="label label-primary">0</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    衣柜
+                                    昨日新增
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-primary">327.00</span>
+                                    <span class="label label-primary">0</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    防盗门
+                                    待审核
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-warning">125.00</span>
+                                    <span class="label label-warning">0</span>
                                 </td>
 
                             </tr>
                             <tr>
-                                <td>橱柜</td>
+                                <td>店铺到期</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">344.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>手机</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">235.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>显示器</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">100.00</span>
+                                    <span class="label label-primary">0</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -206,37 +193,25 @@
                             </tr>
                             <tr>
                                 <td>
-                                    衣柜
+                                    出售中
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-primary">327.00</span>
+                                    <span class="label label-primary">3272</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    防盗门
+                                    商品咨询
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-warning">125.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>橱柜</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">344.00</span>
+                                    <span class="label label-warning">0</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td>手机</td>
+                                <td>商品评价</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">235.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>显示器</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">100.00</span>
+                                    <span class="label label-primary">0</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -255,48 +230,36 @@
                             <tr>
                                 <td>
                                     <small>
-                                        防盗门
+                                        待付款
                                     </small>
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-primary">483.00</span>
+                                    <span class="label label-primary">0</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    衣柜
+                                    待发货
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-primary">327.00</span>
+                                    <span class="label label-primary">1852</span>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    防盗门
+                                    退款
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-warning">125.00</span>
+                                    <span class="label label-warning">2</span>
                                 </td>
 
                             </tr>
                             <tr>
-                                <td>橱柜</td>
+                                <td>退货</td>
                                 <td class="text-center">
-                                    <span class="label label-primary">344.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>手机</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">235.00</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>显示器</td>
-                                <td class="text-center">
-                                    <span class="label label-primary">100.00</span>
+                                    <span class="label label-primary">1</span>
                                 </td>
                             </tr>
                         </tbody>

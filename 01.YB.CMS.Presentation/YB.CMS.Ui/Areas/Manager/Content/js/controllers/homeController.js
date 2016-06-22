@@ -2,12 +2,14 @@
     var vm = $scope.vm = {
         SaleAmount: {},
         OrderNumber: {},
+        OrderTotalNumber:{},
         ShopNumber: {},
         UserNumber: {}
     };
     homeService.getPlatHome().then(function (data) {
         vm.SaleAmount = data.SaleAmount;
         vm.OrderNumber = data.OrderNumber;
+        vm.OrderTotalNumber = data.OrderTotalNumber;
         vm.ShopNumber = data.ShopNumber;
         vm.UserNumber = data.UserNumber;
         $scope.dataset = [{
