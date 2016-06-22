@@ -24,6 +24,14 @@ namespace YB.CMS.Models.View
         /// 用户数
         /// </summary>
         public LongTrend UserNumber { get; set; }
+        /// <summary>
+        /// 订单下单数
+        /// </summary>
+        public List<long[,]> OrderLines { get; set; }
+        /// <summary>
+        /// 订单付款数
+        /// </summary>
+        public List<long[,]> OrderPayLines { get; set; }
     }
     /// <summary>
     /// 金额趋势(今天,对比金额)

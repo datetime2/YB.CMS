@@ -205,7 +205,6 @@
     <Compile Include="Query\BaseQuery.cs" />
     <Compile Include="Query\OrderQuery.cs" />
     <Compile Include="View\PlatHomeView.cs" />
-    <Compile Include="View\DateXYaxis.cs" />
     <Compile Include="View\SelectView.cs" />
     <Compile Include="View\PlatOrderView.cs" />
   </ItemGroup>
