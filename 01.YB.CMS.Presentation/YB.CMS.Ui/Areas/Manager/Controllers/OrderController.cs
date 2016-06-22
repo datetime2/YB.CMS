@@ -16,15 +16,12 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
         {
             this.IOrderRepository = _IOrderRepository;
         }
-
         #region View
         public ActionResult List()
         {
             return View();
         }
         #endregion
-
-
         #region Ajax Method
         [HttpGet]
         public JsonResult OrderList(long? orderid, DateTime? stime, DateTime? etime,string sortcolumn,string sortorder,int? page,int? pagesize,int? distributor)

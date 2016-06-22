@@ -15,9 +15,7 @@ namespace YB.CMS.Repositories
         {
             return QueryDb<PlatHomeView>((context) =>
             {
-
                 //数据库操作
-
                 var home = new PlatHomeView
                 {
                     OrderNumber = new LongTrend
@@ -44,15 +42,21 @@ namespace YB.CMS.Repositories
                         TodayNumber = 268,
                         ContrastNumber = 1658
                     },
-                    OrderLines = GetEchartLine(6, DateTime.Today),
-                    OrderPayLines = GetEchartLine(6, DateTime.Today)
+                    OrderLines = FlotChart(6, DateTime.Today),
+                    OrderPayLines = FlotChart(6, DateTime.Today)
                 };
                 return home;
             });
         }
 
         #region PrivateMethod
-        private List<long[,]> GetEchartLine(int days, DateTime? endtime)
+        /// <summary>
+        /// Flot图标数据集合
+        /// </summary>
+        /// <param name="days"></param>
+        /// <param name="endtime"></param>
+        /// <returns></returns>
+        private List<long[,]> FlotChart(int days, DateTime? endtime)
         {
             var span = new TimeSpan(DateTime.Parse("1/1/1970").Ticks);
             var dayX = new List<long[,]>();

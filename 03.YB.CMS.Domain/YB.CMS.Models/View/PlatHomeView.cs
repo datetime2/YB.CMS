@@ -16,7 +16,9 @@ namespace YB.CMS.Models.View
         /// 下单数
         /// </summary>
         public LongTrend OrderNumber { get; set; }
-
+        /// <summary>
+        /// 订单总数
+        /// </summary>
         public LongTrend OrderTotalNumber { get; set; }
         /// <summary>
         /// 店铺数
