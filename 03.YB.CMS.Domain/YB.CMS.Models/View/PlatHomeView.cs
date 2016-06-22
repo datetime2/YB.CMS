@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YB.CMS.Models.View
 {
-    public class HomeView
+    public class PlatHomeView
     {
         /// <summary>
         /// 销售额
@@ -26,29 +26,35 @@ namespace YB.CMS.Models.View
         public LongTrend UserNumber { get; set; }
     }
     /// <summary>
-    /// 金额趋势(昨天、今天)
+    /// 金额趋势(今天,对比金额)
     /// </summary>
     public class DecimalTrend
     {
         public DecimalTrend()
         {
             this.TodayAmount = 0;
-            this.YesterdayAmount = 0;
+            this.ContrastAmount = 0;
         }
         public decimal? TodayAmount { get; set; }
-        public decimal? YesterdayAmount { get; set; }
+        /// <summary>
+        /// 对比金额
+        /// </summary>
+        public decimal? ContrastAmount { get; set; }
     }
     /// <summary>
-    /// 数量趋势(昨天、今天)
+    /// 数量趋势(今天,对比数量)
     /// </summary>
     public class LongTrend
     {
         public LongTrend()
         {
             this.TodayNumber = 0;
-            this.YesterdayNumber = 0;
+            this.ContrastNumber = 0;
         }
         public long? TodayNumber { get; set; }
-        public long? YesterdayNumber { get; set; }
+        /// <summary>
+        /// 对比数量
+        /// </summary>
+        public long? ContrastNumber { get; set; }
     }
 }

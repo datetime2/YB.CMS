@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YB.CMS.Models.View
 {
-    public class OrderView
+    public class PlatOrderView
     {
         public long Id { get; set; }
         public DateTime OrderDate { get; set; }

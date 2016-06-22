@@ -11,6 +11,6 @@ namespace YB.CMS.IRepositories
 {
     public interface IOrderRepository : IRepository<Himall_Orders>
     {
-        AngularTable<OrderView> GetOrderList(OrderQuery query);
+        AngularTable<PlatOrderView> GetOrderList(OrderQuery query);
     }
 }

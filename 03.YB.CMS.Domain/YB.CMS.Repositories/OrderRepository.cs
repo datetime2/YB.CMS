@@ -16,11 +16,11 @@ namespace YB.CMS.Repositories
 {
     public class OrderRepository : Repository<Himall_Orders>, IOrderRepository
     {
-        public AngularTable<OrderView> GetOrderList(OrderQuery query)
+        public AngularTable<PlatOrderView> GetOrderList(OrderQuery query)
         {
-            return QueryDb<AngularTable<OrderView>>((context) =>
+            return QueryDb<AngularTable<PlatOrderView>>((context) =>
             {
-                AngularTable<OrderView> grid = new AngularTable<OrderView>();
+                AngularTable<PlatOrderView> grid = new AngularTable<PlatOrderView>();
                 var d = SqlQuery<Himall_Orders>.Builder(context);
                 if (query.OrderId.HasValue)
                     d.AndWhere(m => m.Id, OperationMethod.Equal, query.OrderId.Value);
@@ -57,7 +57,7 @@ namespace YB.CMS.Repositories
                         break;
                 }
                 var result = context.Page<Himall_Orders>(query.Page.Value, query.PageSize.Value, out total, d);
-                grid.data = result.Select(item => new OrderView
+                grid.data = result.Select(item => new PlatOrderView
                 {
                     Id = item.Id,
                     UserName = item.UserName,
