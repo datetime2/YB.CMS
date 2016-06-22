@@ -12,6 +12,7 @@
     <script src="~/Areas/Manager/Content/js/plugins/angularjs/plugins/ng-table.min.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/angularjs/plugins/datepicker.directive.js"></script>
     <script src="~/Areas/Manager/Content/js/plugins/datapicker/jquery.datetimepicker.js"></script>
+    <script src="~/Areas/Manager/Content/js/plugins/angularjs/plugins/ng-table-to-csv.min.js"></script>
 }
 <div class="wrapper wrapper-content" ng-controller="orderCtrl" ng-cloak>
     <div class="ibox float-e-margins">
@@ -59,10 +60,13 @@
                                     </div>
                                     <button type="button" class="btn btn-sm" ng-click="search()"><i class="fa fa-search">查询</i></button>
                                     <button type="button" class="btn btn-sm" ng-click="clear()"><i class="fa fa-undo">撤销</i></button>
+                                    <a class="btn" title="导出CSV" ng-click="csv.generate()" ng-href="{{csv.link()}}" download="订单数据.csv">
+                                        <i class="glyphicon glyphicon-new-window"></i> 导出
+                                    </a>
                                 </form>
                             </div>
                             <div class="flip-scroll">
-                                <table ng-table="tableParams" class="table table-striped table-condensed flip-content table-hover">
+                                <table ng-table="tableParams" class="table table-striped table-condensed flip-content table-hover" export-csv="csv">
                                     <tr ng-repeat="row in $data">
                                         @*<td data-title="'订单来源'" sortable="'PlatFrom'"><span ng-bind-html="row.PlatFrom|order_paltform"></span></td>*@
                                         <td data-title="'订单号'" sortable="'Id'"><span ng-bind-html="row.PlatFrom|order_paltform:row.Id"></span></td>
@@ -76,7 +80,7 @@
                                         <td data-title="'税费'" sortable="'PushCustomsTax'">{{row.PushCustomsTax|currency:'￥'}}</td>
                                         <td data-title="'是否推送'" sortable="'IsPush'">{{row.IsPush}}</td>
                                     </tr>
-                                    <tr ng-show="$data.length==0"><td colspan="10" align="center">没有数据</td></tr>
+                                    @*<tr ng-show="$data.length==0"><td colspan="10" align="center">没有数据</td></tr>*@
                                 </table>
                             </div>
                         </div>

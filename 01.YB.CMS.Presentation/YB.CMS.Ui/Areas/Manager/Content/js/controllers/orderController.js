@@ -1,4 +1,4 @@
-﻿var app = angular.module('CmsApp', ['ngTable']).
+﻿var app = angular.module('CmsApp', ['ngTable','ngTableToCsv']).
     controller('orderCtrl', function ($scope, ngTableParams, orderService) {
         var vm = $scope.vm = {
             orderid: "",
