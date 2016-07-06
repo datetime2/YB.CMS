@@ -39,6 +39,15 @@ namespace YB.CMS.Ui.Areas.Manager.Controllers
             };
             var list = IOrderRepository.GetOrderList(OrderQuery);
             return Json(list, JsonRequestBehavior.AllowGet);
+            //var query = new List<SqlWhereQuery<Himall_Orders>>();
+
+            //query.Add(new SqlWhereQuery<Himall_Orders> {
+            //    expr = s => s.CellPhone,
+            //    operation = OperationMethod.Contains,
+            //    value = "18856256565"
+            //});
+
+            //IOrderRepository.Find(query);
         }
         #endregion
     }
