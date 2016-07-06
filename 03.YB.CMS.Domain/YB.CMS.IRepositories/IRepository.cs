@@ -3,6 +3,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 using DapperEx;
+using YB.CMS.Models.Query;
+
 namespace YB.CMS.IRepositories
 {
     /// <summary>
@@ -16,7 +18,7 @@ namespace YB.CMS.IRepositories
         /// </summary>
         /// <param name="express">条件表达式</param>
         /// <returns></returns>
-        T Find(SqlQuery findsql);
+        T Find(List<SqlWhereQuery<T>> query);
         /// <summary>
         /// 新增
         /// </summary>

@@ -6,6 +6,8 @@ using YB.CMS.Infrastructure;
 using YB.CMS.IRepositories;
 using Dapper;
 using DapperEx;
+using YB.CMS.Models.Query;
+
 namespace YB.CMS.Repositories
 {
     /// <summary>
@@ -20,11 +22,19 @@ namespace YB.CMS.Repositories
                 return context.Insert(model);
             });
         }
-        public T Find(SqlQuery findsql)
+        public T Find(List<SqlWhereQuery<T>> query)
         {
             return QueryDb<T>((context) =>
             {
-                return context.SingleOrDefault<T>(findsql);
+                var d = SqlQuery<T>.Builder(context);
+                if (query.Any())
+                {
+                    foreach(var item in query)
+                    {
+                        d.AndWhere(item.expr, item.operation, item.value);
+                    }
+                }
+                return context.SingleOrDefault<T>(d);
             });
         }
         public bool Remove(Expression<Func<T, bool>> predi)

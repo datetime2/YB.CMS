@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using YB.CMS.Models.Model;
 using YB.CMS.Models.Query;
 using YB.CMS.IRepositories;
-
+using DapperEx;
 namespace YB.CMS.Ui.Areas.Manager.Controllers
 {
     public class OrderController : Controller
